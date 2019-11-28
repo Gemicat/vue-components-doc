@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+    <Header></Header>
     <div class="page-container page-component">
       <div class="page-component__nav">
-        <router-link v-for="(item, index) in navs" :to="item.name" :key="index">{{item.name}}</router-link>
+        <div v-for="(route, routeIndex) in navs" :key="routeIndex">
+          <div>{{route.name}}</div>
+          <router-link v-for="(item, index) in route.children" :to="{name: item.name}" :key="index">{{item.name}}</router-link>
+        </div>
       </div>
       <div class="page-component__content">
         <router-view></router-view>
@@ -12,8 +16,12 @@
 </template>
 
 <script>
+import Header from './components/header'
 export default {
   name: "app",
+  components: {
+    Header
+  },
   data() {
     return {
       navs: []
@@ -25,7 +33,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 body,
 html {
   margin: 0;
