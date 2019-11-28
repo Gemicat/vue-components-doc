@@ -137,141 +137,114 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
   transition: 0.2s;
-
-  &.hover {
-    box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
-      0 2px 4px 0 rgba(232, 237, 250, 0.5);
-  }
-
-  code {
-    font-family: Menlo, Monaco, Consolas, Courier, monospace;
-  }
-
-  .demo-button {
-    float: right;
-  }
-
-  .source {
-    padding: 24px;
-  }
-
-  .meta {
-    background-color: #fafafa;
-    border-top: solid 1px #eaeefb;
-    overflow: hidden;
-    height: 0;
-    transition: height 0.2s;
-  }
-
-  .description {
-    padding: 20px;
-    box-sizing: border-box;
-    border: solid 1px #ebebeb;
-    border-radius: 3px;
-    font-size: 14px;
-    line-height: 22px;
-    color: #666;
-    word-break: break-word;
-    margin: 10px;
-    background-color: #fff;
-
-    p {
-      margin: 0;
-      line-height: 26px;
-    }
-
-    code {
-      color: #5e6d82;
-      background-color: #e6effb;
-      margin: 0 4px;
-      display: inline-block;
-      padding: 1px 5px;
-      font-size: 12px;
-      border-radius: 3px;
-      height: 18px;
-      line-height: 18px;
-    }
-  }
-
-  .highlight {
-    pre {
-      margin: 0;
-    }
-
-    code.hljs {
-      margin: 0;
-      border: none;
-      max-height: none;
-      border-radius: 0;
-
-      &::before {
-        content: none;
-      }
-    }
-  }
-
-  .demo-block-control {
-    border-top: solid 1px #eaeefb;
-    height: 44px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    text-align: center;
-    margin-top: -1px;
-    color: #d3dce6;
-    cursor: pointer;
-    position: relative;
-
-    &.is-fixed {
-      position: fixed;
-      bottom: 0;
-      width: 868px;
-    }
-
-    i {
-      font-size: 16px;
-      line-height: 44px;
-      transition: 0.3s;
-      &.hovering {
-        transform: translateX(-40px);
-      }
-    }
-
-    > span {
-      position: absolute;
-      transform: translateX(-30px);
-      font-size: 14px;
-      line-height: 44px;
-      transition: 0.3s;
-      display: inline-block;
-    }
-
-    &:hover {
-      color: #409eff;
-      background-color: #f9fafc;
-    }
-
-    & .text-slide-enter,
-    & .text-slide-leave-active {
-      opacity: 0;
-      transform: translateX(10px);
-    }
-
-    .control-button {
-      line-height: 26px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 14px;
-      padding-left: 5px;
-      padding-right: 25px;
-    }
-  }
+}
+.demo-block.hover {
+  box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
+    0 2px 4px 0 rgba(232, 237, 250, 0.5);
+}
+.demo-block code {
+  font-family: Menlo, Monaco, Consolas, Courier, monospace;
+}
+.demo-block .demo-button {
+  float: right;
+}
+.demo-block .source {
+  padding: 24px;
+}
+.demo-block .meta {
+  background-color: #fafafa;
+  border-top: solid 1px #eaeefb;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.2s;
+}
+.demo-block .description {
+  padding: 20px;
+  box-sizing: border-box;
+  border: solid 1px #ebebeb;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666;
+  word-break: break-word;
+  margin: 10px;
+  background-color: #fff;
+}
+.demo-block .description p {
+  margin: 0;
+  line-height: 26px;
+}
+.demo-block .description code {
+  color: #5e6d82;
+  background-color: #e6effb;
+  margin: 0 4px;
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  height: 18px;
+  line-height: 18px;
+}
+.demo-block .highlight pre {
+  margin: 0;
+}
+.demo-block .highlight code.hljs {
+  margin: 0;
+  border: none;
+  max-height: none;
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.demo-block .highlight code.hljs::before {
+  content: none;
+}
+.demo-block .demo-block-control {
+  border-top: solid 1px #eaeefb;
+  height: 44px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  text-align: center;
+  margin-top: -1px;
+  color: #d3dce6;
+  cursor: pointer;
+  position: relative;
+}
+.demo-block .demo-block-control.is-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 868px;
+}
+.demo-block .demo-block-control i {
+  font-size: 16px;
+  line-height: 44px;
+  transition: 0.3s;
+}
+.demo-block .demo-block-control i.hovering {
+  transform: translateX(-40px);
+}
+.demo-block .demo-block-control > span {
+  position: absolute;
+  transform: translateX(-30px);
+  font-size: 14px;
+  line-height: 44px;
+  transition: 0.3s;
+  display: inline-block;
+}
+.demo-block .demo-block-control:hover {
+  color: #409eff;
+  background-color: #f9fafc;
+}
+.demo-block .demo-block-control .text-slide-enter,
+.demo-block .demo-block-control .text-slide-leave-active {
+  opacity: 0;
+  transform: translateX(10px);
 }
 </style>

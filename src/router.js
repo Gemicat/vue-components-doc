@@ -15,13 +15,13 @@ context.keys().map(k => {
     const fileNameSplit = fileName.split('-')
     routeMap[fileNameSplit[0]] = routeMap[fileNameSplit[0]] || []
     routeMap[fileNameSplit[0]].push({
-      path: `/${fileNameSplit[1]}`,
+      path: `${fileNameSplit[1]}`,
       name: fileName,
       component: context(k).default
     })
   } else {
     routeMap['其他'].push({
-      path: `/${fileName}`,
+      path: `${fileName}`,
       name: fileName,
       component: context(k).default
     })
@@ -43,8 +43,6 @@ Vue.use(Router)
 const router = new Router({
   routes
 })
-
-console.log(routes)
 
 router.afterEach(() => {
   Vue.nextTick(() => {
