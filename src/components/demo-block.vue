@@ -25,7 +25,6 @@
 </template>
 
 <script type="text/babel">
-import { stripScript, stripStyle, stripTemplate } from "../util";
 
 export default {
   data() {
@@ -54,6 +53,24 @@ export default {
     removeScrollHandler() {
       this.scrollParent &&
         this.scrollParent.removeEventListener("scroll", this.scrollHandler);
+    },
+
+    stripScript() {
+      const result = content.match(/<(script)>([\s\S]+)<\/\1>/);
+      return result && result[2] ? result[2].trim() : "";
+    },
+
+    stripStyle(content) {
+      const result = content.match(/<(style)\s*>([\s\S]+)<\/\1>/);
+      return result && result[2] ? result[2].trim() : "";
+    },
+
+    stripTemplate(content) {
+      content = content.trim();
+      if (!content) {
+        return content;
+      }
+      return content.replace(/<(script|style)[\s\S]+<\/\1>/g, "").trim();
     }
   },
 
@@ -114,9 +131,9 @@ export default {
         }
       }
       if (code) {
-        this.codepen.html = stripTemplate(code);
-        this.codepen.script = stripScript(code);
-        this.codepen.style = stripStyle(code);
+        this.codepen.html = this.stripTemplate(code);
+        this.codepen.script = this.stripScript(code);
+        this.codepen.style = this.stripStyle(code);
       }
     }
   },
