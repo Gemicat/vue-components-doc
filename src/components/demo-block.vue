@@ -55,7 +55,7 @@ export default {
         this.scrollParent.removeEventListener("scroll", this.scrollHandler);
     },
 
-    stripScript() {
+    stripScript(content) {
       const result = content.match(/<(script)>([\s\S]+)<\/\1>/);
       return result && result[2] ? result[2].trim() : "";
     },
