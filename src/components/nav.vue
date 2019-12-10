@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .page-component__nav {
   width: 240px;
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   margin-top: 160px;
