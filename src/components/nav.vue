@@ -3,11 +3,11 @@
     <div class="side-nav">
       <ul>
         <li v-for="(route, routeIndex) in navs" :key="routeIndex" class="nav-item">
-          <a>{{route.name}}</a>
+          <a>{{route.name | formatText}}</a>
           <div class="nav-group">
             <ul>
               <li v-for="(item, index) in route.children" :key="index" class="nav-item">
-                <router-link :to="{name: item.name}" active-class="active">{{item.path}}</router-link>
+                <router-link :to="{name: item.name}" active-class="active">{{item.path | formatText}}</router-link>
               </li>
             </ul>
           </div>
@@ -23,6 +23,11 @@ export default {
     return {
       navs: []
     };
+  },
+  filters: {
+    formatText(text) {
+      return text.replace(/_/g, ' ')
+    }
   },
   created() {
     const { routes } = this.$router.options;
