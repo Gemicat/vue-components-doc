@@ -33,6 +33,7 @@ html {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
+  background-color: #fff !important;
 }
 
 a {
@@ -136,6 +137,9 @@ a {
 }
 .page-component .content > h3 {
   margin: 55px 0 20px;
+}
+.page-component .content > p {
+  margin: 14px 0;
 }
 .page-component .content > table {
   border-collapse: collapse;
