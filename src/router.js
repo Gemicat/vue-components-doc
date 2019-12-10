@@ -44,6 +44,14 @@ const router = new Router({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  try {
+    !to.name ? next({name: routes[0].children[0].name}) : next()
+  } catch(e) {
+    next()
+  }
+})
+
 router.afterEach(() => {
   Vue.nextTick(() => {
     const blocks = document.querySelectorAll("pre code:not(.hljs)");
