@@ -1,5 +1,6 @@
 const {
   stripScript,
+  stripStyle,
   stripTemplate,
   genInlineComponentText
 } = require('./util');
@@ -16,6 +17,7 @@ module.exports = function(source) {
   let id = 0; // demo 的 id
   let output = []; // 输出的内容
   let start = 0; // 字符串开始位置
+  let style = ''
 
   let commentStart = content.indexOf(startTag);
   let commentEnd = content.indexOf(endTag, commentStart + startTagLen);
@@ -25,6 +27,7 @@ module.exports = function(source) {
     const commentContent = content.slice(commentStart + startTagLen, commentEnd);
     const html = stripTemplate(commentContent);
     const script = stripScript(commentContent);
+    style += stripStyle(commentContent)
     let demoComponentContent = genInlineComponentText(html, script);
     const demoComponentName = `element-demo${id}`;
     output.push(`<template slot="source"><${demoComponentName} /></template>`);
@@ -53,8 +56,8 @@ module.exports = function(source) {
     start = content.indexOf('</script>') + '</script>'.length;
     pageScript = content.slice(0, start);
   }
-
   output.push(content.slice(start));
+  console.log(style)
   return `
     <template>
       <section class="content element-doc">
@@ -62,5 +65,6 @@ module.exports = function(source) {
       </section>
     </template>
     ${pageScript}
+    <style scoped>${style}</style>
   `;
 };
